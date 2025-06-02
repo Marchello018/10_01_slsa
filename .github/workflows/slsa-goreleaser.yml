@@ -40,3 +40,4 @@ jobs:
       go-version: 1.19
       config-file: .slsa-goreleaser.yml
       evaluated-envs: "COMMIT_DATE:${{needs.args.outputs.commit-date}}, COMMIT:${{needs.args.outputs.commit}}, VERSION:${{needs.args.outputs.version}}, TREE_STATE:${{needs.args.outputs.tree-state}}"
+      compile-builder: true
