@@ -1,0 +1,18 @@
+version: 1
+
+env:
+  - GO111MODULE=on
+  - CGO_ENABLED=0
+
+goos: linux
+goarch: amd64
+
+main: ./cmd/main.go
+
+binary: binary-{{ .Os }}-{{ .Arch }}
+
+ldflags:
+  - "-X main.Version={{ .Env.VERSION }}"
+  - "-X main.Commit={{ .Env.COMMIT }}"
+  - "-X main.CommitDate={{ .Env.COMMIT_DATE }}"
+  - "-X main.TreeState={{ .Env.TREE_STATE }}"
